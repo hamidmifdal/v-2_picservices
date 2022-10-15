@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand text-warning fs-2" href="{{ url_for('main') }}">Pic <span class="text-info">Services</span> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active fs-5 me-4" aria-current="page" href="{{ url_for('main') }}"> <i class="bi bi-house-fill fs-3"></i></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fs-5 me-4 text-info" href="#navbarDropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              TEXTILE
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-warning" href=""></a></li>
+              <li><a class="dropdown-item text-warning" href="{{ url_for('pt') }}">POLOS T-SHIRT</a></li>
+              <!-- <li><hr class="dropdown-divider text-info"></li> -->
+              <li><a class="dropdown-item text-warning" href="{{ url_for('vdt') }}">VETEMENTS DE TRAVAIL</a></li>
+              <li><a class="dropdown-item text-warning" href="{{ url_for('at') }}">AUTRES TEXTILES</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fs-5 me-4 text-info" href="#navbarDropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Travaux d'mpression
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item text-warning" href="{{ url_for('ajonda') }}">Grand | Petit Format</a></li>
+              <li><a class="dropdown-item text-warning" href="{{ url_for('publicitepg') }}">Publicite Par L'objet</a></li>
+              <!-- <li><hr class="dropdown-divider text-info"></li> -->
+              <li><a class="dropdown-item text-warning" href="{{ url_for('machine') }}">Impression UV | Laser</a></li>
+              <li><a class="dropdown-item text-warning" href="{{ url_for('seri') }}">Sérigraphie | Transfert</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fs-5 me-4" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control text-black bg-light btn-light" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <a class="btn btn-outline-dark btn-floating m-1 d-sm-none"  href="#!" role="button">
+            <i class="bi bi-facebook"></i>
+        </a>
+        <a class="btn btn-outline-dark btn-floating m-1 d-sm-none" href="#!" role="button">
+            <i class="bi bi-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <hr class="dropdown-divider mb-5 mt-5 ">

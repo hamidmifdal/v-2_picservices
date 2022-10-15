@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href ="{{ url_for('static',filename='cs/bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--  icons -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icons0.png') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Bienvenue Pic Services</title>
+</head>
+<body>
+    <div class="bg-dark text-white align-items-center text-center">
+        <p class="fs-6 p-1">Pic Services | bienvenue <a role="button" href="https://goo.gl/maps/mZtTzCFqZsxBSRUa8" target="_blank" class="text-reset"> <i class="bi bi-geo-alt fs-5 me-3"></i> </a> 
+            | <i class="bi bi-telephone fs-5 ms-3"></i> + 212 5 224 474 35
+        </p>
+    </div>
+{% block content %}
+
+{% endblock %}
+
+</body>
+</html>

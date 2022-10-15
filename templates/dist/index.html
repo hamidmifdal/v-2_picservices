@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-xl">
+    {% include 'navbar.html' %}   
+    {% include 'carousel.html' %} 
+</div>
+<!--
+<div class="position-relative">
+    <img class="w-100 py-5" src="{{ url_for('static', filename='img/mockupfree1.jpg') }}">
+    <div class="carousel-caption justify-content-center">
+    </div>    
+</div>
+-->
+<div class="container mt-5">
+    <h1 class="text-center m-5 h3">SERVICES</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+        <div class="col">
+          <div class="card h-100" style="border: 0px solid white;">
+            <img src="{{ url_for('static', filename='img/seri.jpeg') }}" class="card-img-top rounded-2" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Serigraphie</h5>
+              <p class="card-text">
+                La sérigraphie est un procédé d'impression se déroule avec l'aide de l'écran et/ou un cadre sur lesquels un tissu à mailles est tendu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100" style="border: 0px solid white;">
+            <img src="{{ url_for('static', filename='img/pagg.jpg') }}" class="card-img-top rounded-2" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">pagg</h5>
+              <p class="card-text">An identity document is any document that may be used to prove a person's identity. If issued in a small, standard credit card size form, it is usually ...
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100" style="border: 0px solid white;">
+            <img src="{{ url_for('static', filename='img/printing.jpg') }}" class="card-img-top rounded-2" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">roll up</h5>
+              <p class="card-text">Digital printing is best used for items that require high amounts of detail and smaller quantity orders.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}
