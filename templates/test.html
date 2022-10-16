@@ -11,6 +11,7 @@
     <link href="{{ url_for('static',filename='cs/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="{{ url_for('static',filename='cs/sb-admin-2.min.css') }}" rel="stylesheet"> 
+    <link href="{{ url_for('static',filename='cs/bootstrap.css') }}" rel="stylesheet"> 
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -19,7 +20,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin PC<sup>1</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin PS</div>
             </a>
 
             <!-- Divider -->
@@ -92,10 +93,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Pages :</h6>
                         <a class="collapse-item" href="{{ url_for('pages') }}">Pages</a>
-                        <a class="collapse-item" href="...">...</a>
-                        <a class="collapse-item" href="...">...</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="">404 Page</a>
@@ -346,5 +345,7 @@
     <script src="{{ url_for('static',filename='cs/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static',filename='cs/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ url_for('static',filename='cs/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 </body>
 </html>

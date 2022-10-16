@@ -15,9 +15,6 @@
             <label for="inputEmail4" class="form-label mt-3">Description</label>
             <input name="description" class="form-control w-50" id="inputEmail4" >
   
-            <label for="inputEmail4" class="form-label mt-3">Prix</label>
-            <input name="prix" class="form-control w-50" id="inputEmail4">
-  
             <label for="inputEmail4" class="form-label mt-3">image</label>
             <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
   
@@ -35,12 +32,12 @@
               </tr>
             </thead>
             <tbody>
-                {% for i in products %}
+                {% for i in p %}
               <tr>
                 <th scope="row">{{ i.id }}</th>
                 <td>{{ i.title }}</td>
                 <td>{{ i.prix }}</td>
-                    <form action="/delete/Pb/{{ i.id }}" method="post">
+                    <form action="/cards/rm/{{ i.id }}" method="post">
                       <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                     </form>
               </tr>

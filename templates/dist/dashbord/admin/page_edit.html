@@ -3,4 +3,360 @@
 <div class="container-fluid">
     <h1 class="fs-1 text-warning">Pages Edit</h1>
 </div>
+<div class="container-fluid mt-4 w-75">
+    <h1 class="fs-3">TEXTILE</h1>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            POLOS | TSHIRT
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">POLOS TSHIRT</p>
+                  <form class="mt-5" action="/page_tp/new" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>
+          </div>
+        </div>
+        <!-- v-1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            VETEMENTS DE TRAVAIL
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">VETEMENTS DE TRAVAIL</p>
+                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                          <td>{{ i.prix }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>
+          </div>
+        </div>
+        <!-- v-2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            AUTRES TEXTILES
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">AUTRES TEXTILE</p>
+                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                          <td>{{ i.prix }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>          
+            </div>
+        </div>
+      </div>
+      <!-- V-3 -->
+      <h1 class="fs-3 mt-5">Travaux d'mpression</h1>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne_1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne_1" aria-expanded="false" aria-controls="flush-collapseOne_1">
+                Grand | Petit Format
+            </button>
+          </h2>
+          <div id="flush-collapseOne_1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">Grand | Petit Format</p>
+                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                          <td>{{ i.prix }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>
+          </div>
+        </div>
+        <!-- v-4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo_2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo_2" aria-expanded="false" aria-controls="flush-collapseTwo_2">
+                Publicite Par L'objet
+            </button>
+          </h2>
+          <div id="flush-collapseTwo_2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo_2" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">Publicite Par L'objet</p>
+                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                          <td>{{ i.prix }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>
+          </div>
+        </div>
+        <!-- v-5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree_3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree_3" aria-expanded="false" aria-controls="flush-collapseThree_3">
+                Impression UV | Laser
+            </button>
+          </h2>
+          <div id="flush-collapseThree_3" class="accordion-collapse collapse" aria-labelledby="flush-headingThree_3" data-bs-parent="#accordionFlushExample">
+            <center class="h-100 py-5">
+                <p class="fs-1 btn btn-dark w-50 mb-5">Impression UV | Laser</p>
+                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+          
+                      <label for="inputEmail4" class="form-label">Title</label>
+                      <input name="title" class="form-control w-50" id="inputEmail4">
+            
+                      <label for="inputEmail4" class="form-label mt-3">Description</label>
+                      <input name="description" class="form-control w-50" id="inputEmail4" >
+            
+                      <label for="inputEmail4" class="form-label mt-3">image</label>
+                      <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+            
+                      <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                  </form>
+              </center>
+              <center>
+                  <table class="table w-50">
+                      <thead>
+                        <tr>
+                          <th scope="col">#id</th>
+                          <th scope="col">title</th>
+                          <th scope="col">prix</th>
+                          <th scope="col">actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in p %}
+                        <tr>
+                          <th scope="row">{{ i.id }}</th>
+                          <td>{{ i.title }}</td>
+                          <td>{{ i.prix }}</td>
+                              <form action="/cards/rm/{{ i.id }}" method="post">
+                                <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                              </form>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+              </center>          
+            </div>
+        </div>
+        <!--v-5-->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefor_4" aria-expanded="false" aria-controls="flush-collapsefor_4">
+                Sérigraphie | Transfert
+              </button>
+            </h2>
+            <div id="flush-collapsefor_4" class="accordion-collapse collapse" aria-labelledby="flush-headingfor_4" data-bs-parent="#accordionFlushExample">
+              <center class="h-100 py-5">
+                  <p class="fs-1 btn btn-dark w-50 mb-5">Sérigraphie | Transfert</p>
+                    <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+            
+                        <label for="inputEmail4" class="form-label">Title</label>
+                        <input name="title" class="form-control w-50" id="inputEmail4">
+              
+                        <label for="inputEmail4" class="form-label mt-3">Description</label>
+                        <input name="description" class="form-control w-50" id="inputEmail4" >
+              
+                        <label for="inputEmail4" class="form-label mt-3">image</label>
+                        <input name="file" type="file" class="form-control w-50" id="inputEmail4" >
+              
+                        <button type="submit" class="btn btn-info mt-4">Add to Products</button>
+                    </form>
+                </center>
+                <center>
+                    <table class="table w-50">
+                        <thead>
+                          <tr>
+                            <th scope="col">#id</th>
+                            <th scope="col">title</th>
+                            <th scope="col">prix</th>
+                            <th scope="col">actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in p %}
+                          <tr>
+                            <th scope="row">{{ i.id }}</th>
+                            <td>{{ i.title }}</td>
+                            <td>{{ i.prix }}</td>
+                                <form action="/cards/rm/{{ i.id }}" method="post">
+                                  <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
+                                </form>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                </center>          
+              </div>
+          </div>
+      </div>
+</div>
 {% endblock %}

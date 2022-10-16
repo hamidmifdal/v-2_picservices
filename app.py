@@ -1,4 +1,5 @@
-from flask import Flask , render_template, request , flash
+from crypt import methods
+from flask import Flask , render_template as r, request , flash , redirect , url_for
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -7,25 +8,125 @@ app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SECRET_KEY'] = "it dog"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
+UPLOAD_FOLDER='static/img/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-class Products(db.Model):
-    __tablename__ = 'Products'
-    id    = db.Column(db.Integer, primary_key = True)
-    img   = db.Column(db.LargeBinary)
-    nm    = db.Column(db.String(999))
-    title = db.Column(db.String(999))
-    def __repr__(self,id,img,nm,title):
-        self.id    = id
-        self.img   = img
-        self.nm    = nm
-        self.title = title
+class Cards(db.Model):
+    __tablename__ = 'Cards'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
 
-r = render_template
+class TP(db.Model):
+    __tablename__ = 'TP'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class VDT(db.Model):
+    __tablename__ = 'VDT'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class AT(db.Model):
+    __tablename__ = 'AT'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class GPF(db.Model):
+    __tablename__ = 'GPF'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class PPL(db.Model):
+    __tablename__ = 'PPL'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class UVL(db.Model):
+    __tablename__ = 'UVL'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
+
+class SERIT(db.Model):
+    __tablename__ = 'SERIT'
+    id             = db.Column(db.Integer, primary_key = True)
+    img            = db.Column(db.BLOB)
+    description    = db.Column(db.String(999))
+    title          = db.Column(db.String(999))
+    filename       = db.Column(db.String(999))
+    def __repr__(self,id,img,description,title,filename):
+        self.id             = id
+        self.img            = img
+        self.description    = description
+        self.title          = title
+        self.filename       = filename
 
 @app.route('/')
 def main():
-    return r('dist/index.html')
+    return r('dist/index.html', p = Cards.query.all())
 
 @app.route('/serigraphie')
 def seri():
@@ -70,21 +171,48 @@ def carousel():
 @app.route('/admin/pages_edit/cards')
 def cards():
     return r('dist/dashbord/admin/cards.html')
-@app.route('cards/new', methods=['GET','POST'])
+
+@app.route('/cards/new', methods=['GET','POST'])
 def new():
     if request.method == 'POST':
-      if not request.form['title'] or not request.form['description'] or not request.form['prix']:
+      if not request.form['title'] or not request.form['description']:
          flash('Please enter all the fields', 'error')
       else:
          file = request.files['file']
          #file.save(file.filename)
          file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
-      #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
-         pd = Products(title = request.form['title'], description = request.form['description'], 
-            prix = request.form['prix'], filename=file.filename, date=file.read())
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         pd = Cards(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
          db.session.add(pd)
          db.session.commit()
-         return r('dist/dashbord/admin/cards.html', p = Products.query.all())
+         return redirect(url_for('main'))
+    return r('dist/dashbord/admin/cards.html', p = Cards.query.all())
+
+@app.route('/page_tp/new', methods=['GET','POST'])
+def pagenew():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         pd = TP(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(pd)
+         db.session.commit()
+         return redirect(url_for('main'))
+    return r('dist/dashbord/admin/cards.html', p = TP.query.all())
+
+@app.route('/cards/rm/<int:id>',methods=['GET','POST'])
+def rmcard(id):
+    rm_card = Cards.query.filter_by(id=id).first()
+    if request.method=='POST':
+        if rm_card:
+            db.session.delete(rm_card)
+            db.session.commit() 
+    return redirect(url_for('main'))
+
         
 
 with app.app_context():
