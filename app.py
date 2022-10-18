@@ -130,31 +130,31 @@ def main():
 
 @app.route('/serigraphie')
 def seri():
-    return r('dist/page/serigraphie.html')
+    return r('dist/page/serigraphie.html', p = SERIT.query.all())
 
 @app.route('/ajonda')
 def ajonda():
-    return r('dist/page/ajonda.html')
+    return r('dist/page/ajonda.html', p = GPF.query.all())
 
 @app.route('/publicitepg')
 def publicitepg():
-    return r('dist/page/publiciteparobjet.html')
+    return r('dist/page/publiciteparobjet.html', p = PPL.query.all())
 
 @app.route('/uv_laser')
 def machine(): 
-    return r('dist/page/machine.html')
+    return r('dist/page/machine.html', p = UVL.query.all())
 
 @app.route('/polos_tshirt')
 def pt():
-    return r('dist/page/pt.html')
+    return r('dist/page/pt.html', p = TP.query.all())
 
 @app.route('/vetements_de_travil')
 def vdt():
-    return r('dist/page/vdt.html')
+    return r('dist/page/vdt.html', p = VDT.query.all())
 
 @app.route('/Autres_textiles')
 def at():
-    return r('dist/page/at.html')
+    return r('dist/page/at.html', p = AT.query.all())
 
 @app.route('/admin')
 def admin():
@@ -173,7 +173,7 @@ def cards():
     return r('dist/dashbord/admin/cards.html')
 
 @app.route('/cards/new', methods=['GET','POST'])
-def new():
+def Card():
     if request.method == 'POST':
       if not request.form['title'] or not request.form['description']:
          flash('Please enter all the fields', 'error')
@@ -185,11 +185,11 @@ def new():
          pd = Cards(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
          db.session.add(pd)
          db.session.commit()
-         return redirect(url_for('main'))
+         return redirect('/admin')
     return r('dist/dashbord/admin/cards.html', p = Cards.query.all())
 
-@app.route('/page_tp/new', methods=['GET','POST'])
-def pagenew():
+@app.route('/page_serit/new', methods=['GET','POST'])
+def Serit():
     if request.method == 'POST':
       if not request.form['title'] or not request.form['description']:
          flash('Please enter all the fields', 'error')
@@ -198,11 +198,117 @@ def pagenew():
          #file.save(file.filename)
          file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
          #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
-         pd = TP(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         fire = SERIT(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(fire)
+         db.session.commit()
+         return redirect(url_for('main'))
+    #return r('dist/dashbord/admin/cards.html', p = TP.query.all())
+@app.route('/page_vdt/new', methods=['GET','POST'])
+def Vdt():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         pd = VDT(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
          db.session.add(pd)
          db.session.commit()
          return redirect(url_for('main'))
-    return r('dist/dashbord/admin/cards.html', p = TP.query.all())
+
+@app.route('/page_at/new', methods=['GET','POST'])
+def At():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         pd = AT(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(pd)
+         db.session.commit()
+         return redirect(url_for('main'))
+
+@app.route('/page_gpf/new', methods=['GET','POST'])
+def Gpf():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         pd = GPF(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(pd)
+         db.session.commit()
+         return redirect(url_for('main'))
+
+@app.route('/page_ppl/new', methods=['GET','POST'])
+def Ppl():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         ppl = PPL(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(ppl)
+         db.session.commit()
+         return redirect(url_for('main'))
+    return r('dist/dashbord/admin/cards.html', p = PPL.query.all())
+
+@app.route('/page_uvl/new', methods=['GET','POST'])
+def Uvl():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         uvl = UVL(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(uvl)
+         db.session.commit()
+         return redirect(url_for('main'))
+
+@app.route('/page_tp/new', methods=['GET','POST'])
+def Tp():
+    if request.method == 'POST':
+      if not request.form['title'] or not request.form['description']:
+         flash('Please enter all the fields', 'error')
+      else:
+         file = request.files['file']
+         #file.save(file.filename)
+         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
+         #file.save(os.path.join(app.config['UPLOAD_FOLDER']))
+         tp = TP(title = request.form['title'], description = request.form['description'], filename=file.filename, img=file.read())
+         db.session.add(tp)
+         db.session.commit()
+         return redirect(url_for('main'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/cards/rm/<int:id>',methods=['GET','POST'])
 def rmcard(id):

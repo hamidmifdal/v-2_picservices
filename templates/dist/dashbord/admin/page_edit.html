@@ -35,7 +35,6 @@
                         <tr>
                           <th scope="col">#id</th>
                           <th scope="col">title</th>
-                          <th scope="col">prix</th>
                           <th scope="col">actions</th>
                         </tr>
                       </thead>
@@ -44,7 +43,7 @@
                         <tr>
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -64,7 +63,7 @@
           <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
             <center class="h-100 py-5">
                 <p class="fs-1 btn btn-dark w-50 mb-5">VETEMENTS DE TRAVAIL</p>
-                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                  <form class="mt-5" action="/page_vdt/new" method="post" enctype="multipart/form-data">
           
                       <label for="inputEmail4" class="form-label">Title</label>
                       <input name="title" class="form-control w-50" id="inputEmail4">
@@ -94,7 +93,7 @@
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
                           <td>{{ i.prix }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -114,7 +113,7 @@
           <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <center class="h-100 py-5">
                 <p class="fs-1 btn btn-dark w-50 mb-5">AUTRES TEXTILE</p>
-                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                  <form class="mt-5" action="/page_at/new" method="post" enctype="multipart/form-data">
           
                       <label for="inputEmail4" class="form-label">Title</label>
                       <input name="title" class="form-control w-50" id="inputEmail4">
@@ -144,7 +143,7 @@
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
                           <td>{{ i.prix }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -167,7 +166,7 @@
           <div id="flush-collapseOne_1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <center class="h-100 py-5">
                 <p class="fs-1 btn btn-dark w-50 mb-5">Grand | Petit Format</p>
-                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                  <form class="mt-5" action="/page_gpf/new" method="post" enctype="multipart/form-data">
           
                       <label for="inputEmail4" class="form-label">Title</label>
                       <input name="title" class="form-control w-50" id="inputEmail4">
@@ -197,7 +196,7 @@
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
                           <td>{{ i.prix }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -217,7 +216,7 @@
           <div id="flush-collapseTwo_2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo_2" data-bs-parent="#accordionFlushExample">
             <center class="h-100 py-5">
                 <p class="fs-1 btn btn-dark w-50 mb-5">Publicite Par L'objet</p>
-                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                  <form class="mt-5" action="/page_ppl/new" method="post" enctype="multipart/form-data">
           
                       <label for="inputEmail4" class="form-label">Title</label>
                       <input name="title" class="form-control w-50" id="inputEmail4">
@@ -247,7 +246,7 @@
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
                           <td>{{ i.prix }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -267,7 +266,7 @@
           <div id="flush-collapseThree_3" class="accordion-collapse collapse" aria-labelledby="flush-headingThree_3" data-bs-parent="#accordionFlushExample">
             <center class="h-100 py-5">
                 <p class="fs-1 btn btn-dark w-50 mb-5">Impression UV | Laser</p>
-                  <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                  <form class="mt-5" action="/page_uvl/new" method="post" enctype="multipart/form-data">
           
                       <label for="inputEmail4" class="form-label">Title</label>
                       <input name="title" class="form-control w-50" id="inputEmail4">
@@ -297,7 +296,7 @@
                           <th scope="row">{{ i.id }}</th>
                           <td>{{ i.title }}</td>
                           <td>{{ i.prix }}</td>
-                              <form action="/cards/rm/{{ i.id }}" method="post">
+                              <form action="{{ i.id }}" method="post">
                                 <td> <input type="submit" value="submit" class="btn btn-outline-danger"> </td>
                               </form>
                         </tr>
@@ -317,7 +316,7 @@
             <div id="flush-collapsefor_4" class="accordion-collapse collapse" aria-labelledby="flush-headingfor_4" data-bs-parent="#accordionFlushExample">
               <center class="h-100 py-5">
                   <p class="fs-1 btn btn-dark w-50 mb-5">Sérigraphie | Transfert</p>
-                    <form class="mt-5" action="" method="post" enctype="multipart/form-data">
+                    <form class="mt-5" action="/page_serit/new" method="post" enctype="multipart/form-data">
             
                         <label for="inputEmail4" class="form-label">Title</label>
                         <input name="title" class="form-control w-50" id="inputEmail4">
