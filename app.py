@@ -300,7 +300,8 @@ def rmcard(id):
     if request.method=='POST':
         if rm_card:
             db.session.delete(rm_card)
-            db.session.commit() 
+            db.session.commit()
+            os.system('ls')
     return redirect(url_for('main'))
 
         
