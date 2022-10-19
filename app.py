@@ -310,6 +310,7 @@ with app.app_context():
 if __name__=="__main__":
     os.system('git add .')
     os.system('git commit -m "it is server"')
+    os.system('git push origin main')
     app.run(debug=True, host='0.0.0.0', port=5000)
 
     
