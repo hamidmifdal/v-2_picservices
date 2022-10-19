@@ -293,23 +293,7 @@ def Tp():
          db.session.add(tp)
          db.session.commit()
          return redirect(url_for('main'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#card rm
 @app.route('/cards/rm/<int:id>',methods=['GET','POST'])
 def rmcard(id):
     rm_card = Cards.query.filter_by(id=id).first()
@@ -324,6 +308,8 @@ def rmcard(id):
 with app.app_context():
     db.create_all()
 if __name__=="__main__":
+    os.system('git add .')
+    os.system('git commit -m "it is server"')
     app.run(debug=True, host='0.0.0.0', port=5000)
 
     
